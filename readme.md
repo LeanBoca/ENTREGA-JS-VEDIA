@@ -10,7 +10,7 @@ Funcionalidades:
 
 Herramientas utilizadas:
 - HTML5: Estructura del documento.
-- CSS3: Estilos del simulador.
+- CSS: Estilos del simulador.
 - JavaScript: Lógica de la aplicación.
 - LocalStorage: Almacenamiento persistente en el navegador.
 
