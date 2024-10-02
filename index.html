@@ -19,9 +19,30 @@
         <img src="autos01.jpeg" alt="Imagen de Autos">
     </div>
 
+    <div class="form-container">
+        <form id="formCotizacion">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" placeholder="Ingresá tu edad" required>
+
+            <label for="tipoSeguro">Tipo de Seguro:</label>
+            <select id="tipoSeguro" required>
+                <option value="básico">Básico</option>
+                <option value="completo">Completo</option>
+                <option value="premium">Premium</option>
+            </select>
+
+            <button type="submit">Cotizar Seguro</button>
+        </form>
+    </div>
+
+    <div id="resultadoCotizacion"></div>
+    <div id="confirmacionCotizacion" style="display:none;">
+        <p>¿Deseas confirmar esta cotización?</p>
+        <button id="confirmarCotizacion">Confirmar</button>
+    </div>
+
     <footer class="footer">
-        <p><a href="https://weblvedia.vercel.app/" target="_blank">WebLVedia</a> © 2024 Todos los derechos reservados
-        </p>
+        <p><a href="https://weblvedia.vercel.app/" target="_blank">WebLVedia</a> © 2024 Todos los derechos reservados</p>
     </footer>
 
     <script src="java.js"></script>

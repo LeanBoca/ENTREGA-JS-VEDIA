@@ -1,7 +1,4 @@
-
-/*************************************************** diseño general *******************************************/
-
-
+/*************************************************** Diseño general *******************************************/
 * {
     margin: 0;
     padding: 0;
@@ -17,17 +14,13 @@ a {
     text-decoration: none;
 }
 
-
-/*************************************************** diseño particulares *******************************************/
-
+/*************************************************** Diseño particular *******************************************/
 img {
     max-width: 50%;
     display: block;
     margin: auto;
     padding: 1rem;
-
 }
-
 
 header {
     display: flex;
@@ -37,7 +30,7 @@ header {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     text-align: center;
     background-color: grey;
-    padding: 40px
+    padding: 40px;
 }
 
 .container {
@@ -45,6 +38,14 @@ header {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     text-align: center;
     gap: 10px;
+    padding: 1rem;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     padding: 1rem;
 }
 
@@ -56,4 +57,29 @@ footer {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     padding: 20px;
     background-color: grey;
+}
+
+#resultadoCotizacion {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: darkblue;
+}
+
+#confirmacionCotizacion {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
