@@ -1,10 +1,10 @@
-/*Clase Cotizador para manejar la lógica de cotización*/
+/*******Clase Cotizador para manejar la lógica de cotización*******/
 class Cotizador {
     constructor() {
         this.preciosBase = [];
     }
 
-    /* Método para cargar los precios desde el archivo JSON */
+    /******* Método para cargar los precios desde el archivo JSON *******/
     async cargarPrecios() {
         try {
             const response = await fetch('precios.json');
@@ -20,11 +20,11 @@ class Cotizador {
         }
     }
 
-    /* Método para calcular el precio del seguro */
+    /******* Método para calcular el precio del seguro *******/
     calcularPrecio(edad, tipoSeguro) {
         let precioFinal;
 
-        /* Algoritmo para determinar el precio inicial */
+        /******* Algoritmo para determinar el precio inicial *******/
         switch (tipoSeguro) {
             case "básico":
                 precioFinal = this.preciosBase[0];
@@ -39,7 +39,7 @@ class Cotizador {
                 return null;
         }
 
-        /* Ajustar precio según la edad */
+        /******* Ajustar precio según la edad *******/
         for (let i = 18; i < edad; i += 10) {
             precioFinal += 1000;
         }
@@ -48,31 +48,31 @@ class Cotizador {
     }
 }
 
-/* Función para mostrar el resultado en el DOM */
+/******* Función para mostrar el resultado en el DOM *******/
 function mostrarResultado(precio) {
     const resultadoDiv = document.getElementById("resultadoCotizacion");
     resultadoDiv.innerHTML = `<p>El precio final de tu seguro es: $${precio}</p>`;
-    document.getElementById("confirmacionCotizacion").style.display = 'block'; /* Mostrar la opción de confirmar */
+    document.getElementById("confirmacionCotizacion").style.display = 'block'; /******* Mostrar la opción de confirmar *******/
 }
 
-/* Función para guardar la cotización en localStorage */
+/******* Función para guardar la cotización en localStorage *******/
 function guardarCotizacionEnStorage(cotizacion) {
     localStorage.setItem("ultimaCotizacion", JSON.stringify(cotizacion));
 }
 
-/* Función para obtener la cotización del localStorage */
+/******* Función para obtener la cotización del localStorage *******/
 function obtenerCotizacionDeStorage() {
     return JSON.parse(localStorage.getItem("ultimaCotizacion"));
 }
 
-/* Evento de formulario para capturar la cotización */
+/****** Evento de formulario para capturar la cotización *******/
 document.getElementById("formCotizacion").addEventListener("submit", async function (e) {
     e.preventDefault(); /* Evita que el formulario se envíe y recargue la página */
 
     const edad = parseInt(document.getElementById("edad").value);
     const tipoSeguro = document.getElementById("tipoSeguro").value;
 
-    /* Validar la edad */
+    /******* Validar la edad *******/
     if (isNaN(edad) || edad < 18) {
         Swal.fire({
             icon: 'warning',
@@ -81,7 +81,7 @@ document.getElementById("formCotizacion").addEventListener("submit", async funct
         });
     } else {
         const cotizador = new Cotizador();
-        await cotizador.cargarPrecios(); /* Cargar los precios desde el JSON */
+        await cotizador.cargarPrecios(); /******* Cargar los precios desde el JSON *******/
         const precio = cotizador.calcularPrecio(edad, tipoSeguro);
 
         if (precio !== null) {
@@ -98,7 +98,7 @@ document.getElementById("formCotizacion").addEventListener("submit", async funct
     }
 });
 
-/* Confirmar la cotización */
+/******* Confirmar la cotización *******/
 document.getElementById("confirmarCotizacion").addEventListener("click", function () {
     const cotizacionGuardada = obtenerCotizacionDeStorage();
     if (cotizacionGuardada) {
@@ -110,7 +110,7 @@ document.getElementById("confirmarCotizacion").addEventListener("click", functio
     }
 });
 
-/* Recuperar la última cotización al cargar la página */
+/******* Recuperar la última cotización al cargar la página *******/
 window.onload = function () {
     const cotizacionGuardada = obtenerCotizacionDeStorage();
     if (cotizacionGuardada) {
